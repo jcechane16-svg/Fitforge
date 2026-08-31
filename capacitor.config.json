@@ -1,7 +1,7 @@
 {
   "appId": "com.fitforge.app",
   "appName": "FitForge",
-  "webDir": "www",
+  "webDir": "./www",
   "server": {
     "androidScheme": "https"
   },
