@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitForge | BMI Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="bmi">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <a href="dashboard.html" class="brand" aria-label="FitForge dashboard">
+            <span class="brand-mark">F</span>
+            <span>FitForge</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Dashboard navigation">
+          <a href="dashboard.html" data-nav="dashboard" class="nav-item">Dashboard</a>
+          <a href="workout.html" data-nav="workout" class="nav-item">Workouts</a>
+          <a href="workout.html#plans" data-nav="plans" class="nav-item">Workout Plans</a>
+          <a href="bmi.html" data-nav="bmi" class="nav-item active">BMI Calculator</a>
+          <a href="progress.html" data-nav="progress" class="nav-item">Progress</a>
+          <a href="goals.html" data-nav="goals" class="nav-item">Goals</a>
+          <a href="profile.html" data-nav="profile" class="nav-item">Profile</a>
+          <button type="button" class="logout-btn nav-item" data-action="logout">Logout</button>
+        </nav>
+
+        <div class="theme-switcher">
+          <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="toggle-label">Dark Mode</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="panel-header mobile-header">
+          <div class="mobile-nav-wrap">
+            <button class="nav-toggle" aria-label="Open mobile navigation" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+            <h1>BMI Calculator</h1>
+          </div>
+          <div class="header-actions">
+            <button id="themeToggleMobile" class="btn btn-secondary btn-small" type="button">Theme</button>
+          </div>
+        </header>
+
+        <section class="page-section">
+          <div class="bmi-layout">
+            <div class="card card-panel">
+              <div class="section-heading">
+                <span class="eyebrow">Health screening</span>
+                <h2>Check your body mass index.</h2>
+              </div>
+
+              <form id="bmiForm" class="profile-form" novalidate>
+                <div class="two-col">
+                  <div class="field-group">
+                    <label for="heightInput">Height</label>
+                    <input id="heightInput" name="height" type="number" min="0" step="0.1" placeholder="Enter height" required />
+                  </div>
+                  <div class="field-group">
+                    <label for="heightUnit">Units</label>
+                    <select id="heightUnit" name="heightUnit">
+                      <option value="centimeters">Centimeters</option>
+                      <option value="feet">Feet / Inches</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="two-col">
+                  <div class="field-group">
+                    <label for="weightInput">Weight</label>
+                    <input id="weightInput" name="weight" type="number" min="0" step="0.1" placeholder="Enter weight" required />
+                  </div>
+                  <div class="field-group">
+                    <label for="weightUnit">Units</label>
+                    <select id="weightUnit" name="weightUnit">
+                      <option value="kilograms">Kilograms</option>
+                      <option value="pounds">Pounds</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="toolbar-row">
+                  <button type="submit" class="btn btn-primary">Calculate BMI</button>
+                  <button type="button" id="bmiReset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form>
+
+              <div class="note-box">
+                <strong>Important:</strong> BMI is only a general screening measure and does not diagnose health conditions. For users who are still growing, BMI interpretation is different from adult BMI, so encourage checking with a parent/guardian or healthcare professional rather than treating the adult categories as a diagnosis.
+              </div>
+            </div>
+
+            <div class="card card-panel hidden" id="bmiResult">
+              <div class="bmi-result">
+                <span class="eyebrow">Result</span>
+                <div class="result-score"><span id="bmiMetric">0.0</span></div>
+                <span class="result-tag" id="bmiCategoryText">Normal range</span>
+                <p id="healthyRange">Healthy BMI range is typically 18.5 to 24.9 for adults.</p>
+
+                <div class="bmi-scale">
+                  <div class="bmi-scale-bar">
+                    <span id="bmiMarker" class="bmi-marker" style="left: 35%;"></span>
+                  </div>
+                  <div class="meta-row">
+                    <span>15</span>
+                    <span>18.5</span>
+                    <span>25</span>
+                    <span>30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitForge | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <a href="dashboard.html" class="brand" aria-label="FitForge dashboard">
+            <span class="brand-mark">F</span>
+            <span>FitForge</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Dashboard navigation">
+          <a href="dashboard.html" data-nav="dashboard" class="nav-item active">Dashboard</a>
+          <a href="workout.html" data-nav="workout" class="nav-item">Workouts</a>
+          <a href="workout.html#plans" data-nav="plans" class="nav-item">Workout Plans</a>
+          <a href="bmi.html" data-nav="bmi" class="nav-item">BMI Calculator</a>
+          <a href="progress.html" data-nav="progress" class="nav-item">Progress</a>
+          <a href="goals.html" data-nav="goals" class="nav-item">Goals</a>
+          <a href="profile.html" data-nav="profile" class="nav-item">Profile</a>
+          <button type="button" class="logout-btn nav-item" data-action="logout">Logout</button>
+        </nav>
+
+        <div class="theme-switcher">
+          <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
+            </span>
+            <span class="toggle-label">Dark Mode</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="panel-header mobile-header">
+          <div class="mobile-nav-wrap">
+            <button class="nav-toggle" aria-label="Open mobile navigation" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <h1>Dashboard</h1>
+          </div>
+          <div class="header-actions">
+            <button id="themeToggleMobile" class="btn btn-secondary btn-small" type="button">Theme</button>
+          </div>
+        </header>
+
+        <section class="dashboard-top card dashboard-hero">
+          <div>
+            <p class="eyebrow">Fitness dashboard</p>
+            <h2>Welcome back, <span id="welcomeName">Athlete</span>!</h2>
+          </div>
+          <div class="quote-box">
+            <span>Daily motivation</span>
+            <p id="dailyQuote">Progress is built one rep at a time.</p>
+          </div>
+        </section>
+
+        <section class="stats-grid dashboard-stats">
+          <article class="dashboard-stat card">
+            <span>Current Weight</span>
+            <strong id="currentWeight">--</strong>
+            <small>kg</small>
+          </article>
+          <article class="dashboard-stat card">
+            <span>BMI</span>
+            <strong id="bmiValue">--</strong>
+            <small id="bmiCategory">--</small>
+          </article>
+          <article class="dashboard-stat card">
+            <span>Daily Calories</span>
+            <strong id="dailyCalories">--</strong>
+            <small>kcal</small>
+          </article>
+          <article class="dashboard-stat card">
+            <span>Workouts Completed</span>
+            <strong id="workoutsCompleted">0</strong>
+            <small>total</small>
+          </article>
+          <article class="dashboard-stat card">
+            <span>Current Streak</span>
+            <strong id="currentStreak">0</strong>
+            <small>days</small>
+          </article>
+          <article class="dashboard-stat card">
+            <span>Weekly Goal</span>
+            <strong id="weeklyGoal">0%</strong>
+            <small>this week</small>
+          </article>
+        </section>
+
+        <section class="content-grid dashboard-grid">
+          <article class="card workout-panel">
+            <div class="panel-header">
+              <h3>Today's Workout</h3>
+              <span class="tag tag-green">Ready</span>
+            </div>
+
+            <div class="workout-summary">
+              <h4 id="workoutName">Full Body Blast</h4>
+              <div class="meta-row">
+                <span>⏱️ <strong id="workoutDuration">35 min</strong></span>
+                <span>🔥 <strong id="workoutDifficulty">Moderate</strong></span>
+              </div>
+              <div class="meta-row">
+                <span>🏋️ <strong id="workoutExercises">6 exercises</strong></span>
+                <span>📅 <strong>Today</strong></span>
+              </div>
+            </div>
+
+            <button type="button" id="startWorkoutBtn" class="btn btn-primary btn-block">Start Workout</button>
+          </article>
+
+          <article class="card">
+            <div class="panel-header">
+              <h3>Weekly Progress</h3>
+              <span class="tag">Calories</span>
+            </div>
+            <div id="weeklyChart" class="progress-chart" aria-label="Weekly workout chart"></div>
+          </article>
+        </section>
+
+        <section class="card quick-actions-card">
+          <div class="panel-header">
+            <h3>Quick Actions</h3>
+          </div>
+          <div class="action-grid">
+            <a href="bmi.html" class="action-btn">Calculate BMI</a>
+            <button type="button" class="action-btn" id="actionStartWorkout">Start Workout</button>
+            <a href="progress.html" class="action-btn">Log Weight</a>
+            <a href="progress.html" class="action-btn">View Progress</a>
+            <a href="workout.html" class="action-btn">Browse Exercises</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
