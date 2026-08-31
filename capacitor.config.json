@@ -1,0 +1,16 @@
+{
+  "appId": "com.fitforge.app",
+  "appName": "FitForge",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": true
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitForge | Goals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="goals">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <a href="dashboard.html" class="brand" aria-label="FitForge dashboard">
+            <span class="brand-mark">F</span>
+            <span>FitForge</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Dashboard navigation">
+          <a href="dashboard.html" data-nav="dashboard" class="nav-item">Dashboard</a>
+          <a href="workout.html" data-nav="workout" class="nav-item">Workouts</a>
+          <a href="workout.html#plans" data-nav="plans" class="nav-item">Workout Plans</a>
+          <a href="bmi.html" data-nav="bmi" class="nav-item">BMI Calculator</a>
+          <a href="progress.html" data-nav="progress" class="nav-item">Progress</a>
+          <a href="goals.html" data-nav="goals" class="nav-item active">Goals</a>
+          <a href="profile.html" data-nav="profile" class="nav-item">Profile</a>
+          <button type="button" class="logout-btn nav-item" data-action="logout">Logout</button>
+        </nav>
+
+        <div class="theme-switcher">
+          <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="toggle-label">Dark Mode</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="panel-header mobile-header">
+          <div class="mobile-nav-wrap">
+            <button class="nav-toggle" aria-label="Open mobile navigation" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+            <h1>Daily Goals</h1>
+          </div>
+          <div class="header-actions">
+            <button id="themeToggleMobile" class="btn btn-secondary btn-small" type="button">Theme</button>
+          </div>
+        </header>
+
+        <section class="page-section">
+          <div class="card card-panel">
+            <div class="section-heading">
+              <span class="eyebrow">Healthy habits</span>
+              <h2>Build sustainable progress.</h2>
+            </div>
+            <div id="goalsGrid" class="goal-grid"></div>
+          </div>
+        </section>
+
+        <section class="page-section">
+          <div class="card card-panel">
+            <div class="section-heading">
+              <span class="eyebrow">Achievements</span>
+              <h2>Badges and milestones.</h2>
+            </div>
+            <div id="achievementsGrid" class="achievement-grid"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
