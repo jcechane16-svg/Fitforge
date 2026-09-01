@@ -13,10 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK
         uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
 
       - name: Set up Node
@@ -27,13 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Create www folder and copy files
-        run: |
-          mkdir -p www
-          cp *.html www/ 2>/dev/null || true
-          cp *.css www/ 2>/dev/null || true
-          cp *.js www/ 2>/dev/null || true
-
       - name: Setup Capacitor Android
         run: |
           npx cap add android
@@ -43,7 +36,7 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew clean assembleRelease
+          ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
